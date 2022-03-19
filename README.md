@@ -1,2 +1,2 @@
 # Blockchain
-хуй
+Simple as fuck
