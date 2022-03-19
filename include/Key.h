@@ -6,11 +6,8 @@ std::string GenerateKey()
 {
     std::random_device r;
     std::default_random_engine eng(r());
-    //uint64_t n = std::uniform_int_distribution<uint64_t>(0, UINT64_MAX)(eng);
     std::stringstream stream;
-    stream << std::hex
-        << std::uniform_int_distribution<uint64_t>(0, UINT64_MAX)(eng)
-        << std::uniform_int_distribution<uint64_t>(0, UINT64_MAX)(eng)
-        << std::uniform_int_distribution<uint64_t>(0, UINT64_MAX)(eng);
+    for(int i = 0; i < 64; i++)
+        stream << std::hex << std::uniform_int_distribution<int>(0, 16)(eng);
     return stream.str();
 }
