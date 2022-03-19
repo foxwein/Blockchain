@@ -1,6 +1,7 @@
 #include <Key.h>
+#include <RSA.h>
 
 int main()
 {
-    std::cout << GenerateKey() << std::endl;
+    std::cout << GetRandomPrime(UINT32_MAX) << std::endl;
 }
