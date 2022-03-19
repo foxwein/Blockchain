@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-void ass()
+static void ass()
 {
     uint64_t p, q, n, t, e, d;
     
@@ -48,7 +48,7 @@ void ass()
     }*/
 }
 
-bool IsPrime(uint64_t prime)
+static bool IsPrime(uint64_t prime)
 {
     uint64_t j = (uint64_t)sqrt((long double)prime);
     
@@ -61,7 +61,7 @@ bool IsPrime(uint64_t prime)
     return true;
 }
 
-uint64_t GetRandomPrime(uint64_t max)
+static uint64_t GetRandomPrime(uint64_t max)
 {
     std::random_device r;
     std::default_random_engine eng(r());
@@ -71,7 +71,7 @@ uint64_t GetRandomPrime(uint64_t max)
     return m;
 }
 
-uint64_t CommonDivisor(uint64_t e, uint64_t t)
+static uint64_t CommonDivisor(uint64_t e, uint64_t t)
 {
     while(e > 0)
     {
@@ -83,7 +83,7 @@ uint64_t CommonDivisor(uint64_t e, uint64_t t)
     return t;
 }
 
-uint64_t CalcE(uint64_t t)
+static uint64_t CalcE(uint64_t t)
 {
     for(uint64_t e = 2; e < t; e++)
     {
@@ -94,7 +94,7 @@ uint64_t CalcE(uint64_t t)
     return -1;
 }
 
-uint64_t CalcD(uint64_t e, uint64_t t)
+static uint64_t CalcD(uint64_t e, uint64_t t)
 {   
     uint64_t k = 1;
     
@@ -105,7 +105,7 @@ uint64_t CalcD(uint64_t e, uint64_t t)
     }
 }
 
-uint64_t Encrypt(uint64_t i, uint64_t e, uint64_t n)
+static uint64_t Encrypt(uint64_t i, uint64_t e, uint64_t n)
 {
     uint64_t current, result;
     
@@ -121,7 +121,7 @@ uint64_t Encrypt(uint64_t i, uint64_t e, uint64_t n)
     return result;
 }
 
-uint64_t Decrypt(uint64_t i, uint64_t d, uint64_t n)
+static uint64_t Decrypt(uint64_t i, uint64_t d, uint64_t n)
 {
     uint64_t current = i, result = 1;
     

@@ -1,5 +1,3 @@
-#include <Key.h>
-#include <RSA.h>
 #include <Block.h>
 #include <json/json.h>
 
@@ -12,4 +10,5 @@ int main()
     std::cout << root << std::endl;
     
     std::cout << GetRandomPrime(UINT32_MAX) << std::endl;
+    std::cout << WTF("hello") << std::endl;
 }

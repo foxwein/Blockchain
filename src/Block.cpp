@@ -1,6 +1,6 @@
 #include <Block.h>
 
-Block::Block(int index) : index(index) {}
+Block::Block(int index, std::string prev_hash) : index(index), prev_hash(prev_hash) {}
 
 void Block::SaveToFile()
 {
@@ -8,7 +8,7 @@ void Block::SaveToFile()
 
     root["hash"] = hash;
     root["block"]["previous_hash"] = prev_hash;
-    root["block"]["nonse"] = nonse;
+    root["block"]["nonce"] = nonce;
     root["block"]["index"] = index;
     root["block"]["version"] = version;
 

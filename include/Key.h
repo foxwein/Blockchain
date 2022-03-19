@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-std::string GenerateKey()
+static std::string GenerateKey()
 {
     std::random_device r;
     std::default_random_engine eng(r());
