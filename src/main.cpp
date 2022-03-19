@@ -1,5 +1,6 @@
 #include <Key.h>
 #include <RSA.h>
+#include <Block.h>
 #include <json/json.h>
 
 int main()
