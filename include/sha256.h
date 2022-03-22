@@ -2,7 +2,7 @@
 #include <iostream>
 #include <openssl/sha.h>
 
-static std::string WTF(std::string input)
+static std::string Sha256(std::string input)
 {
     std::string result;
     result.resize(64);

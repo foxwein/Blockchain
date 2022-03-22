@@ -15,18 +15,22 @@ struct Transaction
 class Block
 {
 public:
-    Block(int index, std::string prev_hash);
+    Block(int index, int version, std::string prev_hash);
 
     void SaveToFile();
+    void AddTransaction(const Transaction& tr);
+    void CalculateNonce();
     
     std::string GetHash();
 
 private:
+    void UpdateJSON();
+
     Json::Value root;
 
-    int index, nonce, version;
+    int index, nonce = 0, version;
 
-    std::string hash, prev_hash;
+    std::string hash = "", prev_hash;
 
     std::vector<Transaction> transactions;
 };
