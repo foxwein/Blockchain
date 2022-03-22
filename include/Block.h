@@ -1,6 +1,5 @@
 #pragma once
 #include "Key.h"
-#include "RSA.h"
 #include "sha256.h"
 
 #include <json/json.h>
