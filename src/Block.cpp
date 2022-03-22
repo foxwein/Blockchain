@@ -39,11 +39,16 @@ void Block::UpdateJSON()
     root["block"]["index"] = index;
     root["block"]["version"] = version;
 
-    for(auto& i : transactions)
+    for(int i = 0; i < transactions.size(); i++)
     {
-        root["transactions"]["from"] = i.from;
-        root["transactions"]["to"] = i.to;
-        root["transactions"]["amount"] = i.amount;
-        root["transactions"]["signature"] = i.signature;
+        root["transactions"][i]["from"] = transactions[i].from;
+        root["transactions"][i]["to"] = transactions[i].to;
+        root["transactions"][i]["amount"] = transactions[i].amount;
+        root["transactions"][i]["signature"] = transactions[i].signature;
     }
+}
+
+std::string Block::GetHash()
+{
+    return hash;
 }
