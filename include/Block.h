@@ -8,6 +8,9 @@
 
 struct Transaction
 {
+    Transaction(std::string from, std::string to, double amount, std::string signature) : 
+                from(from), to(to), amount(amount), signature(signature) {}
+
     double amount;
     std::string from, to, signature;
 };

@@ -2,26 +2,21 @@
 #include <json/json.h>
 
 int main()
-{   
-    Block block(0, 1, ""), block1(1, 1, block.GetHash());
-    Transaction tr, tr1, tr2;
-    
-    tr.from = "dima"; tr.to = "sergey";
-    tr.amount = 0.123456; tr.signature = GenerateKey();
+{
+    std::random_device r;
+    std::default_random_engine eng(r());
 
-    tr1.from = "dima"; tr1.to = "marcus";
-    tr1.amount = 0.1; tr1.signature = GenerateKey();
+    std::vector<Transaction> trs;
+    for(int i = 0; i < 250000; i++)
+        trs.emplace_back(GenerateKey(), GenerateKey(), std::uniform_real_distribution<double>(0, 256)(eng), GenerateKey());
 
-    tr2.from = "sergey"; tr2.to = "alisa";
-    tr2.amount = 0.15; tr2.signature = GenerateKey();
-
-    block.AddTransaction(tr);
-    block.AddTransaction(tr1);
-    block1.AddTransaction(tr2);
-
-    block.CalculateNonce();
-    block.SaveToFile();
-
-    block1.CalculateNonce();
-    block1.SaveToFile();
+    std::vector<Block> blocks;
+    for(int i = 0; i < 500; i++)
+    {
+        blocks.emplace_back(i, 1, (i == 0 ? "" : blocks[i - 1].GetHash()));
+        for(int j = 0; j < 500; j++)
+            blocks[i].AddTransaction(trs[j + (i * 500)]);
+        blocks[i].CalculateNonce();
+        blocks[i].SaveToFile();
+    }
 }

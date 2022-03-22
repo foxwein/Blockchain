@@ -8,7 +8,7 @@ Block::Block(int index, int version, std::string prev_hash) : index(index), vers
 
 void Block::SaveToFile()
 {
-    std::ofstream output("block_" + std::to_string(index) + ".json");
+    std::ofstream output("blocks/block_" + std::to_string(index) + ".json");
     UpdateJSON();
     output << root.toStyledString();
 }
