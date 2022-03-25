@@ -1,8 +1,11 @@
 #include <Block.h>
 #include <json/json.h>
+#include <uint256_t.h>
 
 int main()
 {
+    uint256_t test = uint256_max / 2;
+    std::cout << test << std::endl;
     std::random_device r;
     std::default_random_engine eng(r());
 
